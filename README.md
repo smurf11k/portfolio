@@ -8,7 +8,7 @@ The website features an interactive, card-based interface that highlights key pr
 
 Additionally, the repository includes an extra standalone HTML page `playing-cards.html` created as a design example and reference.
 
-[Live Site](#)
+[Live Site](https://smurf11k.github.io/portfolio/)
 
 ## License
 
