@@ -52,6 +52,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 body {
@@ -302,8 +304,8 @@ footer a:hover {
 
 @media screen and (max-width: 600px) {
     :root {
-        --icon-size-small: 1.5rem;
-        --icon-size-large: 3rem;
+        --icon-size-small: 1.7rem;
+        --icon-size-large: 3.5rem;
 
         --glow-intensity: 0.5;
     }
