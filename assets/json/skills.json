@@ -1,0 +1,35 @@
+[
+  {
+    "id": "3d",
+    "title": "3D design \nand animation",
+    "links": [
+      { "label": "Showreel", "url": "#" },
+      { "label": "ArtStation", "url": "https://www.artstation.com/smurf11k" }
+    ]
+  },
+  {
+    "id": "coding",
+    "title": "coding",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/smurf11k" },
+      { "label": "CodePen", "url": "https://codepen.io/smurf11k/pens/" }
+    ]
+  },
+  {
+    "id": "photo",
+    "title": "photography",
+    "links": [
+      { "label": "Behance", "url": "https://www.behance.net/renatamunkacsy" },
+      { "label": "Pixieset", "url": "https://munkacsyrenata.pixieset.com" }
+      
+    ]
+  },
+  {
+    "id": "cinema",
+    "title": "cinematography",
+    "links": [
+      { "label": "Showreel", "url": "#" },
+      { "label": "YouTube", "url": "#" }
+    ]
+  }
+]
