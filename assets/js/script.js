@@ -1,5 +1,3 @@
-// assets/js/script.js
-
 function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
 
 function flipCard(card) {
@@ -60,7 +58,6 @@ function animateSideCards(leftCards, rightCards, p) {
   leftWrap.classList.toggle('show', visible);
   rightWrap.classList.toggle('show', visible);
 
-  // final angles you want:
   const finalAnglesLeft  = [-45, 75];
   const finalAnglesRight = [-45, 45];
 
@@ -71,11 +68,9 @@ function animateSideCards(leftCards, rightCards, p) {
 
       card.style.opacity = tt.toFixed(3);
 
-      // how far they travel in from the sides
-      const dist = (1 - tt) * 100; // more distance than before
+      const dist = (1 - tt) * 100;
 
-      // start with extra tilt and settle into your final angle
-      const startExtraTilt = dir * 20; // additional degrees at the beginning
+      const startExtraTilt = dir * 20;
       const angle = (1 - tt) * startExtraTilt + tt * finalAngles[i];
 
       card.style.transform = `translateX(${dir * dist}px) rotate(${angle}deg)`;
@@ -99,7 +94,6 @@ async function init() {
 
   const skills = await loadSkills();
 
-  // enforce the exact order you want
   const desiredOrder = [
     '3D design and animation',
     'coding',
@@ -111,7 +105,6 @@ async function init() {
     desiredOrder.indexOf(a.title) - desiredOrder.indexOf(b.title)
   );
 
-  // Create 2 left + 2 right
   const leftCards = [
     createCard(ordered[0], '♦'),
     createCard(ordered[1], '♠'),
