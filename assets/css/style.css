@@ -426,12 +426,15 @@ footer a:hover{
   .hero-logo-container{
     position: relative;
     width: 100%;
-    display: flex;
+    display: grid; /*flex*/
     justify-content: center;
+    place-items: center;
     /*padding-top: var(--mobile-logo-top-pad);
     padding-bottom: 20px;*/
-    padding-top: clamp(16px, 4svh, 64px);
-    padding-bottom: clamp(10px, 2svh, 20px);
+    min-height: 100svh;
+    /*padding-top: clamp(16px, 4svh, 64px);
+    padding-bottom: clamp(10px, 2svh, 20px);*/
+    padding: 0;
   }
 
   .hero-logo-img{
@@ -470,7 +473,8 @@ footer a:hover{
 
   /* Push cards down knob */
   .cards-side.left{
-    margin-top: var(--mobile-left-cards-push);
+    /*margin-top: var(--mobile-left-cards-push);*/
+    margin-top: clamp(24px, 6svh, 80px);
   }
 
   .cards-side{
