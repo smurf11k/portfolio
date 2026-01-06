@@ -113,7 +113,11 @@
   --mobile-cards-gap: 80px;
 
   /* “Push cards down” knob */
-  --mobile-left-cards-push: 500px;
+  /* responsive push: min 40px, scales with screen height, max 160px */
+  --mobile-left-cards-push: clamp(40px, 12svh, 160px);
+
+    /* also make logo padding responsive so it never starts too high */
+  --mobile-logo-top-pad: clamp(96px, 8vw, 140px);
 
   /* About section spacing */
   --about-gap: 32px;
@@ -346,6 +350,10 @@ body{
   margin: 0 auto var(--about-mb);
 }
 
+  #about p{
+    text-align: justify;
+  }
+
 .about-card{
   width: min(var(--content-max), 92vw);
   margin: 0 auto;
@@ -420,8 +428,10 @@ footer a:hover{
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: var(--mobile-logo-top-pad);
-    padding-bottom: 20px;
+    /*padding-top: var(--mobile-logo-top-pad);
+    padding-bottom: 20px;*/
+    padding-top: clamp(16px, 4svh, 64px);
+    padding-bottom: clamp(10px, 2svh, 20px);
   }
 
   .hero-logo-img{
