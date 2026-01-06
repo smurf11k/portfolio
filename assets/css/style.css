@@ -106,18 +106,11 @@
   --photo-size-mobile: 150px;
 
   /* Mobile spacing knobs */
-  --intro-height-mobile: 240vh;
-  --intro-sticky-height-mobile: 230vh;
+  --intro-height-mobile: 210vh;
+  --intro-sticky-height-mobile: 210vh;
   --mobile-logo-top-pad: 80px;
   --mobile-layout-gap: 60px;
   --mobile-cards-gap: 80px;
-
-  /* “Push cards down” knob */
-  /* responsive push: min 40px, scales with screen height, max 160px */
-  --mobile-left-cards-push: clamp(40px, 12svh, 160px);
-
-    /* also make logo padding responsive so it never starts too high */
-  --mobile-logo-top-pad: clamp(96px, 8vw, 140px);
 
   /* About section spacing */
   --about-gap: 32px;
@@ -350,9 +343,9 @@ body{
   margin: 0 auto var(--about-mb);
 }
 
-  #about p{
-    text-align: justify;
-  }
+#about p{
+  text-align: justify;
+}
 
 .about-card{
   width: min(var(--content-max), 92vw);
@@ -399,6 +392,7 @@ footer a{
   color: var(--c-fg);
   text-decoration: none;
 }
+
 footer a:hover{
   color: var(--c-fg);
 }
@@ -407,10 +401,6 @@ footer a:hover{
    Mobile
 ========================= */
 @media (max-width: 600px){
-
-  .hero-logo-container { order: 1; }
-  .cards-side.left     { order: 2; }
-  .cards-side.right    { order: 3; }
 
   .intro-stage{
     height: var(--intro-height-mobile);
@@ -423,34 +413,11 @@ footer a:hover{
     padding: 0;
   }
 
-  .hero-logo-container{
-    position: relative;
-    width: 100%;
-    display: grid; /*flex*/
-    justify-content: center;
-    place-items: center;
-    /*padding-top: var(--mobile-logo-top-pad);
-    padding-bottom: 20px;*/
-    min-height: 100svh;
-    /*padding-top: clamp(16px, 4svh, 64px);
-    padding-bottom: clamp(10px, 2svh, 20px);*/
-    padding: 0;
-  }
-
   .hero-logo-img{
     display: block;
     width: min(520px, 86vw);
     height: auto;
     background: transparent;
-  }
-
-  .hero-logo-img.pinned{
-    position: fixed;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%) scale(1);
-    opacity: 1 !important;
-    width: min(240px, 70vw);
   }
 
   .intro-layout{
@@ -471,12 +438,6 @@ footer a:hover{
   .cards-side.left     { grid-area: left; }
   .cards-side.right    { grid-area: right; }
 
-  /* Push cards down knob */
-  .cards-side.left{
-    /*margin-top: var(--mobile-left-cards-push);*/
-    margin-top: clamp(24px, 6svh, 80px);
-  }
-
   .cards-side{
     opacity: 1;
     pointer-events: auto;
@@ -490,11 +451,6 @@ footer a:hover{
     width: 100%;
   }
 
-  .cards-side.left,
-  .cards-side.right{
-    padding: 0;
-  }
-
   .card{
     width: var(--card-w-mobile);
     height: var(--card-h-mobile);
@@ -505,35 +461,20 @@ footer a:hover{
   #about{
     flex-direction: column;
     text-align: center;
-    margin-top: 48px;
+    margin-top: 0;
   }
 
   #about p{
     text-align: justify;
   }
 
-  .about-wrap{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-
   .about-photo{
-    margin-top: 24px;
+    margin-top: 0;
     width: var(--photo-size-mobile);
     height: var(--photo-size-mobile);
   }
 
-  .about-wrap .about-card{
-    width: 100%;
+  .footer-inner p{
+    margin: 0;
   }
-
-  .about-section{
-    padding-top: 20px;
-    text-align: justify;
-    text-justify: inter-word;
-  }
-
-  footer a { line-height: 1.15; }
 }

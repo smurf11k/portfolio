@@ -46,8 +46,10 @@ function createCard(skill, cornerText) {
  * - left pair slides from left, right pair from right
  */
 function animateSideCards(leftCards, rightCards, p) {
+const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
   const start = 0.25;
-  const end   = 0.75;
+  const end = isMobile ? 0.42 : 0.95;
 
   const t = clamp((p - start) / (end - start), 0, 1);
 
@@ -131,16 +133,13 @@ async function init() {
     const rect = intro.getBoundingClientRect();
     const scrollable = rect.height - window.innerHeight;
 
-    // avoid divide by zero
     if (scrollable <= 0) return;
 
-    // progress 0..1 through intro stage
     const p = clamp((-rect.top) / scrollable, 0, 1);
 
     // drives logo shrink in CSS
     document.documentElement.style.setProperty('--p', p.toFixed(4));
 
-    // drives card reveal/slide
     animateSideCards(leftCards, rightCards, p);
   }
 
