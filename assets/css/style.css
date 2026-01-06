@@ -491,10 +491,11 @@ footer a:hover{
   #about{
     flex-direction: column;
     text-align: center;
+    margin-top: 48px;
   }
 
   #about p{
-    text-align: left;
+    text-align: justify;
   }
 
   .about-wrap{
@@ -505,6 +506,7 @@ footer a:hover{
   }
 
   .about-photo{
+    margin-top: 24px;
     width: var(--photo-size-mobile);
     height: var(--photo-size-mobile);
   }
@@ -515,5 +517,9 @@ footer a:hover{
 
   .about-section{
     padding-top: 20px;
+    text-align: justify;
+    text-justify: inter-word;
   }
+
+  footer a { line-height: 1.15; }
 }
