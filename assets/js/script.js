@@ -149,3 +149,13 @@ async function init() {
 }
 
 init().catch(console.error);
+
+const scrollHint = document.querySelector('.scroll-hint');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 1) {
+    scrollHint.style.opacity = '0';
+  } else {
+    scrollHint.style.opacity = '1';
+  }
+});
