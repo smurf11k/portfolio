@@ -1,17 +1,17 @@
 /* =========================
    Fonts
 ========================= */
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 
 @font-face {
-  font-family: '2Dumb';
-  src: url(../fonts/2Dumb.ttf) format('truetype');
+  font-family: "2Dumb";
+  src: url(../fonts/2Dumb.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SabonLTPaneuropean';
-  src: url(../fonts/SabonLTPaneuropean.ttf) format('truetype');
+  font-family: "SabonLTPaneuropean";
+  src: url(../fonts/SabonLTPaneuropean.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -19,29 +19,29 @@
 /* =========================
    Design tokens
 ========================= */
-:root{
+:root {
   /* Fonts */
-  --font-card: '2Dumb';
-  --font-special: 'Special Elite', cursive;
-  --font-base: 'SabonLTPaneuropean', serif;
+  --font-card: "2Dumb";
+  --font-special: "Special Elite", cursive;
+  --font-base: "SabonLTPaneuropean", serif;
 
   /* Colors */
-  --c-bg: #000;
+  --c-bg: #070707;
   --c-fg: #fff;
-  --c-muted: rgba(255,255,255,.72);
+  --c-muted: rgba(255, 255, 255, 0.72);
 
   --c-card-front-bg: #fff;
   --c-card-front-fg: #000;
 
-  --c-card-back-bg: #1C1C1C;
+  --c-card-back-bg: #1c1c1c;
   --c-card-back-fg: #fff;
 
-  --c-border-soft: rgba(255,255,255,.10);
-  --c-border-card: rgba(0,0,0,.15);
+  --c-border-soft: rgba(255, 255, 255, 0.1);
+  --c-border-card: rgba(0, 0, 0, 0.15);
 
   --c-link: #fff;
   --c-link-hover-bg: #fff;
-  --c-link-hover-fg: #1C1C1C;
+  --c-link-hover-fg: #1c1c1c;
 
   /* Playing-card suit / corner */
   --suit-color: #000;
@@ -62,8 +62,8 @@
 
   /* Logo sizing */
   --logo-w: min(700px, 70vw);
-  --logo-scale-min: 0.65;  /* end scale */
-  --logo-opacity-drop: 0.10;
+  --logo-scale-min: 0.65; /* end scale */
+  --logo-opacity-drop: 0.1;
 
   /* Card sizing */
   --card-w: 130px;
@@ -87,16 +87,16 @@
   --lh-body: 1.55;
 
   /* Shadows */
-  --shadow-soft: 0 4px 8px rgba(0,0,0,.2);
-  --shadow-card: 0 10px 30px rgba(0,0,0,.25);
-  --shadow-focus: 0 0 0 2px rgba(255,255,255,.15);
+  --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-focus: 0 0 0 2px rgba(255, 255, 255, 0.15);
 
   /* Motion */
   --t-fast: 0.15s;
   --t-med: 0.2s;
   --t-flip: 0.6s;
   --t-logo: 0.06s;
-  --e-smooth: cubic-bezier(.2,.8,.2,1);
+  --e-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   /* Mobile breakpoint */
   --bp-mobile: 600px;
@@ -120,28 +120,78 @@
 /* =========================
    Global
 ========================= */
-*{ box-sizing: border-box; }
-html,body{ height: 100%; }
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100vh;
+}
 
-body{
+body {
   margin: 0;
-  background: var(--c-bg);
+  background-color: var(--c-bg);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.02) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.35) 0 1px,
+      transparent 1px 4px
+    );
   color: var(--c-fg);
   font-family: var(--font-base);
   width: 100%;
   overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23grain)' opacity='0.035'/%3E%3C/svg%3E");
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(120, 0, 0, 0.02),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse at top right,
+      rgba(120, 0, 0, 0.02),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse at bottom left,
+      rgba(120, 0, 0, 0.04),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(120, 0, 0, 0.04),
+      transparent 70%
+    );
+
+  filter: blur(40px);
 }
 
 /* =========================
    Intro stage
 ========================= */
-.intro-stage{
+.intro-stage {
   height: var(--intro-height);
   position: relative;
   overflow-x: clip;
 }
 
-.intro-sticky{
+.intro-sticky {
   position: sticky;
   top: 0;
   height: 100vh;
@@ -152,7 +202,7 @@ body{
   overflow-x: clip;
 }
 
-.intro-layout{
+.intro-layout {
   width: min(var(--stage-max), calc(100% - var(--gutter)));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -181,13 +231,19 @@ body{
 }
 
 @keyframes float {
-  0%   { transform: translate(-50%, 0); }
-  50%  { transform: translate(-50%, 8px); }
-  100% { transform: translate(-50%, 0); }
+  0% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
 }
 
 /* Logo */
-.hero-logo-img{
+.hero-logo-img {
   width: var(--logo-w);
   height: auto;
   max-width: 120%;
@@ -196,34 +252,49 @@ body{
   /* scale: 1 -> --logo-scale-min as --p goes 0->1 */
   transform: scale(calc(1 - (var(--p) * (1 - var(--logo-scale-min)))));
   opacity: calc(1 - (var(--p) * var(--logo-opacity-drop)));
-  transition: transform var(--t-logo) linear, opacity var(--t-logo) linear;
+  transition:
+    transform var(--t-logo) linear,
+    opacity var(--t-logo) linear;
 }
 
 /* Cards side containers */
-.cards-side{
+.cards-side {
   display: flex;
   flex-direction: row;
   gap: var(--pair-gap);
   align-items: center;
   justify-content: center;
 
-  opacity: 0;
+  /*opacity: 0;
   pointer-events: none;
-  transition: opacity var(--t-med) ease;
+  transition: opacity var(--t-med) ease;*/
 }
 
-.cards-side.left  { padding-right: var(--side-offset); }
-.cards-side.right { padding-left:  var(--side-offset); }
+.cards-side.left {
+  padding-right: var(--side-offset);
+}
+.cards-side.right {
+  padding-left: var(--side-offset);
+}
 
-.cards-side.show{
+.cards-side.show {
   opacity: 1;
   pointer-events: auto;
+}
+
+.cards-side .card {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.cards-side.show .card {
+  opacity: 1;
 }
 
 /* =========================
    Playing card component
 ========================= */
-.card{
+.card {
   width: var(--card-w);
   height: var(--card-h);
   perspective: 1200px;
@@ -233,13 +304,13 @@ body{
   opacity: 0; /* animated in JS */
   transform: translateX(0) rotate(0deg);
   transition:
-    opacity .35s ease,
-    transform .55s var(--e-smooth);
+    opacity 0.35s ease,
+    transform 0.55s var(--e-smooth);
 
   --title-rot: 0deg;
 }
 
-.card-inner{
+.card-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -249,11 +320,11 @@ body{
   will-change: transform;
 }
 
-.card.flipped .card-inner{
+.card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-.card-face{
+.card-face {
   position: absolute;
   inset: 0;
   border-radius: var(--r-card);
@@ -272,20 +343,27 @@ body{
 }
 
 .card-face::before,
-.card-face::after{
+.card-face::after {
   content: attr(data-corner);
   position: absolute;
   font-size: var(--fs-corner);
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   color: var(--suit-color);
 }
-.card-face::before{ top: 12px; left: 12px; }
-.card-face::after { bottom: 12px; right: 12px; transform: rotate(180deg); }
+.card-face::before {
+  top: 12px;
+  left: 12px;
+}
+.card-face::after {
+  bottom: 12px;
+  right: 12px;
+  transform: rotate(180deg);
+}
 
-.card-front h3{
+.card-front h3 {
   margin: 0;
   font-size: var(--fs-card-title);
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   line-height: var(--lh-card-title);
   font-family: var(--font-card);
   font-weight: 400;
@@ -296,7 +374,7 @@ body{
 }
 
 /* Card back */
-.card-back{
+.card-back {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -307,18 +385,18 @@ body{
 }
 
 .card-back::before,
-.card-back::after{
+.card-back::after {
   content: none;
 }
 
-.card-back .links{
+.card-back .links {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 80%;
 }
 
-.card-back a{
+.card-back a {
   display: block;
   text-align: center;
   cursor: pointer;
@@ -341,27 +419,27 @@ body{
     transform var(--t-fast) ease;
 }
 
-.card-back a:hover{
+.card-back a:hover {
   background: var(--c-link-hover-bg);
   color: var(--c-link-hover-fg);
   box-shadow: var(--shadow-focus);
 }
 
-.card-back a:active{
+.card-back a:active {
   transform: scale(0.97);
 }
 
 /* =========================
    About + Footer
 ========================= */
-.section-title{
+.section-title {
   width: min(var(--content-max), 92vw);
   margin: 0 auto 18px;
   font-size: var(--fs-section-title);
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
 }
 
-#about{
+#about {
   display: flex;
   align-items: center;
   gap: var(--about-gap);
@@ -369,15 +447,18 @@ body{
   margin: 0 auto var(--about-mb);
 }
 
-#about p{
+#about p {
   text-align: justify;
 }
 
-.about-card{
+.about-card {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.about-card {
   width: min(var(--content-max), 92vw);
   margin: 0 auto;
   border: 1px solid var(--c-border-soft);
-  background: rgba(255,255,255,.04);
   border-radius: var(--r-about);
   padding: 18px;
   color: var(--c-muted);
@@ -385,13 +466,13 @@ body{
 }
 
 .about-card a:link,
-.about-card a:visited{
+.about-card a:visited {
   color: var(--c-link);
   text-decoration: underline;
   font-family: var(--font-special);
 }
 
-.about-photo{
+.about-photo {
   width: var(--photo-size);
   height: var(--photo-size);
   border-radius: var(--r-photo);
@@ -399,12 +480,28 @@ body{
   box-shadow: var(--shadow-soft);
 }
 
-.footer{
-  border-top: 1px solid rgba(255,255,255,.08);
+.footer {
+  border-top: none; /*1px solid rgba(255, 255, 255, 0.08);*/
+  position: relative;
   padding: 10px 0;
 }
 
-.footer-inner{
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+}
+
+.footer-inner {
   width: min(var(--content-max), 92vw);
   margin: 0 auto;
   display: flex;
@@ -414,39 +511,43 @@ body{
   flex-wrap: wrap;
 }
 
-footer a{
+footer a {
   color: var(--c-fg);
   text-decoration: none;
 }
 
-footer a:hover{
+footer a:hover {
   color: var(--c-fg);
 }
 
 /* =========================
    Mobile
 ========================= */
-@media (max-width: 600px){
+@media (max-width: 600px) {
+  :root {
+    --c-bg: #0c0c0c;
+  }
 
-  .intro-stage{
+  .intro-stage {
     height: var(--intro-height-mobile);
   }
 
-  .intro-sticky{
+  .intro-sticky {
     position: relative;
     height: var(--intro-sticky-height-mobile);
     justify-content: flex-start;
     padding: 0;
   }
 
-  .hero-logo-img{
+  .hero-logo-img {
     display: block;
-    width: min(520px, 86vw);
+    width: min(600px, 100vw);
     height: auto;
+    max-height: 60vh;
     background: transparent;
   }
 
-  .intro-layout{
+  .intro-layout {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -460,11 +561,17 @@ footer a:hover{
     padding-bottom: 20px;
   }
 
-  .hero-logo-container { grid-area: logo; }
-  .cards-side.left     { grid-area: left; }
-  .cards-side.right    { grid-area: right; }
+  .hero-logo-container {
+    grid-area: logo;
+  }
+  .cards-side.left {
+    grid-area: left;
+  }
+  .cards-side.right {
+    grid-area: right;
+  }
 
-  .cards-side{
+  .cards-side {
     opacity: 1;
     pointer-events: auto;
     transition: none;
@@ -477,33 +584,39 @@ footer a:hover{
     width: 100%;
   }
 
-  .card{
+  .card {
     width: var(--card-w-mobile);
     height: var(--card-h-mobile);
     -webkit-tap-highlight-color: transparent;
     outline: none;
   }
 
-  #about{
+  #about {
     flex-direction: column;
     text-align: center;
     margin-top: 10px;
   }
 
-  #about p{
+  #about p {
     text-align: justify;
   }
 
-  .about-photo{
+  .about-card {
+    background-color: rgba(255, 255, 255, 0.09);
+  }
+
+  .about-photo {
     margin-top: 10px;
+    margin-bottom: 20px;
     width: var(--photo-size-mobile);
     height: var(--photo-size-mobile);
   }
 
-  .footer-inner p{
+  .footer {
+    padding: 25px 0;
+  }
+
+  .footer-inner p {
     margin: 0;
   }
 }
-
-/*make the about photo a tilted polaroid picture*/
-/*change scroll*/
