@@ -9,5 +9,7 @@ The website features an interactive, card-based interface that highlights key pr
 [Live Site](https://smurf11k.github.io/portfolio/)
 
 ## License
+All rights reserved.
 
-All rights reserved. This code and design are for personal use only and are not licensed for reuse, redistribution, or derivative works without explicit permission.
+The code and design in this repository are provided for personal viewing and educational reference only.
+Reuse, redistribution, public deployment, or creation of derivative works is not permitted without explicit permission.
