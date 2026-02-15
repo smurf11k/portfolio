@@ -7,9 +7,3 @@ This repository contains the source code for a personal portfolio site showcasin
 The website features an interactive, card-based interface that highlights key project categories with links to external portfolios and project databases. It’s built with modern HTML, CSS, and JavaScript, enhanced by Bootstrap Icons for a clean and responsive user experience.
 
 [Live Site](https://smurf11k.github.io/portfolio/)
-
-## License
-All rights reserved.
-
-The code and design in this repository are provided for personal viewing and educational reference only.
-Reuse, redistribution, public deployment, or creation of derivative works is not permitted without explicit permission.
